@@ -1,2 +1,6 @@
-# phbot_plugins
-A collection of phBot plugins for Silkroad Online automation.
+## 📦 Plugins
+
+| Plugin Name       | Description                             |
+|-------------------|-----------------------------------------|
+| `telegram_notify` | Sends Telegram alerts from phBot        |
+| ...               | ...                                     |
