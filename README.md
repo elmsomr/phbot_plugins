@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # 🧠 phBot Plugins Collection
 
 A personal collection of useful and lightweight plugins for **phBot** — the powerful Silkroad Online botting tool. These plugins enhance automation, notifications, inventory management and more.
@@ -58,3 +59,4 @@ Have an idea for a new plugin? Found a bug? Feel free to open an issue or submit
 GitHub: [https://github.com/elmsomr](https://github.com/elmsomr)
 
 ---
+=======

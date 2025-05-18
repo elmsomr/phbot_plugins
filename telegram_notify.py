@@ -6,51 +6,50 @@ import os
 pName = "TelegramNotify"
 pVersion = "1.0"
 
-# GUI oluştur
+# Initialize GUI
 gui = QtBind.init(__name__, pName)
-QtBind.createLabel(gui, "📲 Telegram bildirim sistemi aktif.", 10, 10)
+QtBind.createLabel(gui, "📲 Telegram notification system is active.", 10, 10)
 
-# Telegram Bot Token ve Kullanıcı ID'si
+# Telegram Bot Token and Chat ID
 BOT_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"
 CHAT_ID = "YOUR_TELEGRAM_CHAT_ID"
 
 inGame = None
 
-# Telegram mesaj gönderme fonksiyonu
+# Function to send message to Telegram
 def send_telegram_message(message):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     data = {"chat_id": CHAT_ID, "text": message}
     try:
         requests.post(url, data=data)
     except Exception as e:
-        log(f"[{pName}] Hata: {e}")
+        log(f"[{pName}] Error: {e}")
 
-# Bağlantı kesildiğinde çağrılacak fonksiyon
+# Called when the bot gets disconnected
 def handle_disconnection():
-    message = "⚠️ phBot Bağlantısı Kesildi!"
+    message = "⚠️ phBot Disconnected!"
     send_telegram_message(message)
-    log(f"[{pName}] Bağlantı kesildi, Telegram bildirimi gönderildi.")
+    log(f"[{pName}] Disconnected, Telegram notification sent.")
 
-# Bağlantı kurulduğunda çağrılacak fonksiyon
+# Called when the bot connects to the server
 def handle_connection():
-    message = "✅ phBot Bağlantı Kuruldu!"
+    message = "✅ phBot Connected!"
     send_telegram_message(message)
-    log(f"[{pName}] Bağlantı kuruldu, Telegram bildirimi gönderildi.")
+    log(f"[{pName}] Connected, Telegram notification sent.")
 
-# Karakter seçildiğinde çağrılacak fonksiyon
+# Called when a character successfully joins the game
 def handle_character_selected():
-    message = "🎭 Karakter Başarıyla Seçildi!"
+    message = "🎭 Character successfully joined the game!"
     send_telegram_message(message)
-    log(f"[{pName}] Karakter seçildi, Telegram bildirimi gönderildi.")
+    log(f"[{pName}] Character joined, Telegram notification sent.")
 
-# Parti güncellendiğinde
+# Called when the party status changes
 def handle_party_update():
-    message = "🔄 Parti Güncellendi!"
+    message = "🔄 Party Updated!"
     send_telegram_message(message)
-    log(f"[{pName}] Parti güncellendi, Telegram bildirimi gönderildi.")
+    log(f"[{pName}] Party updated, Telegram notification sent.")
 
-# Olaylar
-
+# phBot event hooks
 def connected():
     global inGame
     inGame = None
@@ -67,9 +66,9 @@ def joined_game():
 def party_update(party):
     handle_party_update()
 
-# Komut yakalayıcı
+# Optional command handler (not required, but ensures plugin shows up in list)
 def handle_command(args):
-    log(f"[{pName}] Komut alındı: {args}")
+    log(f"[{pName}] Command received: {args}")
 
-# Plugin yüklendi mesajı
-log(f"Plugin: {pName} v{pVersion} başarıyla yüklendi")
+# Plugin loaded message
+log(f"Plugin: {pName} v{pVersion} successfully loaded")
