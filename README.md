@@ -49,7 +49,7 @@ pip install requests
 ---
 
 ## 📬 Suggestions & Contributions
-Have an idea for a new plugin? Found a bug? Feel free to open an issue or submit a pull request.
+Have an idea for a new plugin? Found a bug? Feel free to open an issue or submit a pull request and if you found this project helpful, don't forget to give it a star rating.
 
 ---
 
